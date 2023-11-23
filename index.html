@@ -42,7 +42,16 @@
     <main>
 	 <header><h3>A JavaScript Project by Bezza Zelalem</h3></header>
 	 <h3 id="my-greeting">Good Afternoon!</h3>
-	    <p>Explain what your page does and how it works here!</p>
+	    <p>Welcome to the "Time of Day" web page, a JavaScript project crafted by me Bezza Zelalem. This Javascript project
+			makes changes to the site based on the four diffrent time phases of the day using if else statements. The four phases are
+			Morning (5am-12pm), Afternoon (12pm-6pm), Evening (6pm-11pm), Night (11pm-5am). 
+			Site changes:
+			<ol>
+				<li>The Greeting above changes</li>
+				<li>Background color</li>
+				<li>Bottom right image changes</li>
+			</ol>
+		</p>
 	  <img src="http://dummyimage.com/300x400" alt="Time of Day Image" class="flexible" id="my-pic">
      <footer>
       <p><small>&copy; 2022 by 
@@ -75,24 +84,42 @@
 	let myColor = "";
 	let myPic = "";
 
-	if(myHour >= 12){//afternoon
-		//alert("Good Afternoon!");
+		// PUT IN PLACE FOR TESTING -- REMOVE LINE BELOW
+    
+
+	if(myHour >= 12 && myHour < 18){
 		myGreeting = "Good Afternoon";
 		myColor = "Blue";
+		myPic = "afternoon.jpg";
 		//document.body.style.backgroundColor = "yellow";
-	}else{//not afternoon
-		//alert("Not Afternoon!");
-		myGreeting = "Not Afternoon";
+	}else if (myHour >= 5 && myHour < 12){
+		myGreeting = "Good Morning!!!!!";
 		myColor = "orange";
+		myPic = "morning.jpg";
 		//document.body.style.backgroundColor = "blue";
-    }
+    }else if (myHour >= 18 && myHour < 23){
+		myGreeting = "Good Evening";
+		myColor = "Red";
+		myPic = "evening.jpg"
+	}else {
+		myGreeting = "Good Night";
+		myColor = "Black";
+		myPic = "night.jpg";
+	}
+
+	//pre-pend the images path
+	myPic = "images/" + myPic;
                 
 	//Custom message
-	document.getElementByld("my-greeting").innerHTML = myGreeting;
+	document.getElementById("my-greeting").innerHTML = myGreeting;
 
-     //Custom message
-	 document.querySelector(html).style.backgroundColor = myColor
+     //Custom color
+	document.querySelector('html').style.backgroundColor = myColor;
 	
+	//Custom pic
+	document.getElementById("my-pic").src = myPic;
+
+
 
     document.getElementById("html-checker").setAttribute("href","https://validator.w3.org/nu/?doc=" + location.href);
     document.getElementById("css-checker").setAttribute("href","https://jigsaw.w3.org/css-validator/validator?uri=" + location.href);  
